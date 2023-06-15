@@ -17,7 +17,41 @@ def print_board(board):
 def clear():
     print("\n" * 50)
 
-board = [" "," "," "," "," "," "," "," "," "] # starts empty
+# function to get position of player's move
+def get_player_move():
+    move = 0
+
+    while move not in range(1,10) or not move.isdigit():
+        move = input("Choose a box by entering a number 1-9: ")
+
+        if move not in range(1,10):
+            print("Out of range! Please enter a valid number.")
+
+        if not move.isdigit():
+            print("That is not a number. Please enter a valid number.")
+    
+    return int(move)
+
+
+
+board = [" "," "," "," "," "," "," "," "," "] # board starts empty
+
+PLAYER_ONE = "X"
+PLAYER_TWO = "O"
+
+
+current_move = PLAYER_ONE # player one starts first
+
+
+
+
+
+
+board[move - 1] = current_move
+
+print_board(board)
+
+
 
 
 
