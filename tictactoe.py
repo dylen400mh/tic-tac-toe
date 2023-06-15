@@ -1,4 +1,3 @@
-
 # prints board to display
 def print_board(board):
     print("   |   |   ")
@@ -22,10 +21,13 @@ def get_player_move():
     move = 0
 
     while int(move) not in range(1,10) or not move.isdigit():
+        print_board(board)
         move = input("Choose a box by entering a number 1-9: ")
+        clear()
 
-        if int(move) not in range(1,10):
-            print("Out of range! Please enter a valid number.")
+        if move.isdigit():
+            if int(move) not in range(1,10):
+                print("Out of range! Please enter a valid number.")
 
         if not move.isdigit():
             print("That is not a number. Please enter a valid number.")
@@ -44,18 +46,26 @@ def switch_turn():
     else:
         current_move = PLAYER_ONE
 
+# runs tic-tac-toe game
+def game():
+    while not isWon:
+        place_move(get_player_move(), current_player)
+
 
 board = [" "," "," "," "," "," "," "," "," "] # board starts empty
 
 PLAYER_ONE = "X"
 PLAYER_TWO = "O"
 
+current_player = PLAYER_ONE # player one starts first
 
-current_move = PLAYER_ONE # player one starts first
+isWon = False
 
-board[get_player_move() - 1] = current_move
+game()
 
-print_board(board)
+
+
+
 
 
 
