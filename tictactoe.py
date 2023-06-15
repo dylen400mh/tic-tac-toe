@@ -43,16 +43,18 @@ def place_move(move, current_player):
 
 # switches player turns
 def switch_turn():
-    global current_move
-    if current_move == PLAYER_ONE :
-        current_move = PLAYER_TWO
+    global current_player
+    if current_player == PLAYER_ONE :
+        current_player = PLAYER_TWO
     else:
-        current_move = PLAYER_ONE
+        current_player = PLAYER_ONE
 
 # runs tic-tac-toe game
 def game():
     while not is_won:
+        
         place_move(get_player_move(), current_player)
+        switch_turn()
 
 
 board = [" "," "," "," "," "," "," "," "," "] # board starts empty
