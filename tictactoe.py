@@ -13,4 +13,12 @@ def print_board(board):
     print(f" {board[6]} | {board[7]} | {board[8]} ")
     print("   |   |   ")
 
-board = [" "," "," "," "," "," "," "," "," "]
+# clears screen by printing multiple lines
+def clear():
+    print("\n" * 50)
+
+board = [" "," "," "," "," "," "," "," "," "] # starts empty
+
+
+
+
