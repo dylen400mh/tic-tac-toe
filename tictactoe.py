@@ -21,10 +21,10 @@ def clear():
 def get_player_move():
     move = 0
 
-    while move not in range(1,10) or not move.isdigit():
+    while int(move) not in range(1,10) or not move.isdigit():
         move = input("Choose a box by entering a number 1-9: ")
 
-        if move not in range(1,10):
+        if int(move) not in range(1,10):
             print("Out of range! Please enter a valid number.")
 
         if not move.isdigit():
@@ -32,7 +32,9 @@ def get_player_move():
     
     return int(move)
 
-
+# adds the player's move to the board
+def place_move(move, current_player):
+    board[move - 1] = current_player
 
 board = [" "," "," "," "," "," "," "," "," "] # board starts empty
 
@@ -42,12 +44,7 @@ PLAYER_TWO = "O"
 
 current_move = PLAYER_ONE # player one starts first
 
-
-
-
-
-
-board[move - 1] = current_move
+board[get_player_move() - 1] = current_move
 
 print_board(board)
 
