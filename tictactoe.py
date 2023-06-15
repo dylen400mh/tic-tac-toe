@@ -106,17 +106,6 @@ PLAYER_TWO = "O"
 
 current_player = PLAYER_ONE # player one starts first
 
-# numbered locations corresponding with the 2D array positions of the board
-locations = {1: board[0][0],
-             2: board[0][1],
-             3: board[0][2],
-             4: board[1][0],
-             5: board[1][1],
-             6: board[1][2],
-             7: board[2][0],
-             8: board[2][1],
-             9: board[2][2]}
-
 game()
 
 
