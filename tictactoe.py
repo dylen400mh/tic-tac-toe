@@ -36,6 +36,15 @@ def get_player_move():
 def place_move(move, current_player):
     board[move - 1] = current_player
 
+# switches player turns
+def switch_turn():
+    global current_move
+    if current_move == PLAYER_ONE :
+        current_move = PLAYER_TWO
+    else:
+        current_move = PLAYER_ONE
+
+
 board = [" "," "," "," "," "," "," "," "," "] # board starts empty
 
 PLAYER_ONE = "X"
