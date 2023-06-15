@@ -37,6 +37,8 @@ def get_player_move():
     
     return int(move)
 
+
+
 # adds the player's move to the board
 def place_move(move, current_player):
     board[move - 1] = current_player
@@ -52,9 +54,17 @@ def switch_turn():
 # runs tic-tac-toe game
 def game():
     while not is_won:
-        
-        place_move(get_player_move(), current_player)
-        switch_turn()
+
+        # loop will run until player chooses an empty spot
+        while True:
+            move = get_player_move()
+
+            if board[move - 1] != " ":
+                print("This spot is taken. Please choose another spot.")
+            else:
+                place_move(move, current_player)
+                switch_turn()
+                break
 
 
 board = [" "," "," "," "," "," "," "," "," "] # board starts empty
