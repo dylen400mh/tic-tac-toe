@@ -19,8 +19,9 @@ def clear():
 # function to get position of player's move
 def get_player_move():
     move = 0
+    in_range = False
 
-    while int(move) not in range(1,10) or not move.isdigit():
+    while not in_range or not move.isdigit():
         print_board(board)
         move = input("Choose a box by entering a number 1-9: ")
         clear()
@@ -28,6 +29,8 @@ def get_player_move():
         if move.isdigit():
             if int(move) not in range(1,10):
                 print("Out of range! Please enter a valid number.")
+            else:
+                in_range = True
 
         if not move.isdigit():
             print("That is not a number. Please enter a valid number.")
@@ -48,7 +51,7 @@ def switch_turn():
 
 # runs tic-tac-toe game
 def game():
-    while not isWon:
+    while not is_won:
         place_move(get_player_move(), current_player)
 
 
@@ -59,7 +62,7 @@ PLAYER_TWO = "O"
 
 current_player = PLAYER_ONE # player one starts first
 
-isWon = False
+is_won = False
 
 game()
 
