@@ -73,20 +73,28 @@ def switch_turn():
     else:
         current_player = "X"
 
-# runs tic-tac-toe game
+# runs tic-tac-toe match
 
 
-def game():
+def play_match():
 
     game_in_progress = True
+
+    global board
+    board = [[" ", " ", " "], [" ", " ", " "],
+             [" ", " ", " "]]  # board starts empty
+
+    global current_player
+    current_player = "X"  # player one starts first
 
     while game_in_progress:
 
         global winner  # winner variable can be accessed outside the while loop
 
+        print_title()
+
         # loop will run until player chooses an empty spot
         while True:
-            print_title()
             print_board(board)
             row, col = get_player_move()
 
@@ -153,13 +161,31 @@ def end_game(winner):
         print("Tie game!")
 
 
-board = [[" ", " ", " "], [" ", " ", " "],
-         [" ", " ", " "]]  # board starts empty
+def game():
+    game_playing = True
+
+    while game_playing:
+        play_match()
+
+        choice = ""
+
+        # ask user to play again
+        while choice.upper() not in ["Y", "N"]:
+            choice = input("Do you want to play again? ")
+
+            if choice.upper() not in ["Y", "N"]:
+                print("Invalid Input. Please Try again.")
+
+            # clear screen for new match
+            elif choice.upper() == "Y":
+                clear()
+
+            # end game
+            elif choice.upper() == "N":
+                game_playing = False
+                break
+
 
 players = {"X": "Player One", "O": "Player Two"}
-
-current_player = "X"  # player one starts first
-
-board_full = False
 
 game()
